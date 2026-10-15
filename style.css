@@ -198,3 +198,9 @@ footer{border-top:1px solid var(--line);padding-block:25px;display:flex;justify-
 .logo-image img{position:absolute;display:block;width:120.591%;max-width:none;height:auto;left:-11.155%;top:-154.717%;filter:brightness(0) invert(1);opacity:.96}
 .logo{letter-spacing:normal}
 @media(max-width:680px){.logo-image{width:120px}}
+
+.home-footer{align-items:center;flex-wrap:wrap;gap:10px 20px}
+.social-links{display:flex;gap:20px;font-size:11px;color:var(--gold)}
+.social-links a{display:inline-flex;align-items:center;gap:6px;padding-block:5px}
+.social-links a:hover{color:var(--off-white)}
+@media(max-width:400px){.home-footer{column-gap:12px}.social-links{gap:12px;font-size:10px}}
