@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{--paper:#f6f4ec;--ink:#243c32;--orange:#ed7445;--line:#ccd1c5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:30px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:6px}
+.container{width:min(1160px,88%);margin-inline:auto}
+.header{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-block:28px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;font-size:44px;font-weight:700;letter-spacing:-4px}.logo>span:first-child{color:var(--orange)}
+.logo .logo-text{max-width:150px;margin-left:18px;font-size:10px;line-height:1.6;letter-spacing:1.4px}
+nav{display:flex;gap:32px;font-size:13px}nav a:hover,footer a:hover{color:#b44a24}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:70px;align-items:center;padding-block:80px 90px}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.7}
+h1,h2{font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;letter-spacing:-3px;line-height:1.04}
+h1{font-size:clamp(54px,6.5vw,88px);margin:25px 0}h1 em{font-style:normal;color:#c85a32}
+.intro{max-width:400px;line-height:1.8;font-size:16px;color:#5e6b60}
+.button{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;background:var(--ink);color:white;border:0;padding:18px 24px;cursor:pointer;font-size:13px;transition:transform .2s,background .2s}.button:hover{background:#355846;transform:translateY(-3px)}
+.hero .button{margin-top:22px}.small-note{font-size:11px;color:#6b756b;margin-top:18px}
+.poster{position:relative;isolation:isolate;overflow:hidden;aspect-ratio: .88;background:var(--orange);border-radius:180px 180px 4px 4px;display:flex;align-items:center;justify-content:center;animation:enter .9s ease both}
+.poster-letter{font-family:'Space Grotesk',Arial,sans-serif;font-size:330px;font-weight:700;line-height:1;transform:rotate(-9deg);z-index:1;color:var(--ink)}
+.poster-top,.poster-bottom{position:absolute;left:30px;right:30px;display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:1px;z-index:2}.poster-top{top:65px}.poster-top>span:last-child{font-size:26px}.poster-bottom{bottom:28px;line-height:1.5;align-items:end}
+.orbit{position:absolute;border:1px solid #243c3240;border-radius:50%;width:430px;height:180px;transform:rotate(-38deg)}.orbit-two{transform:rotate(38deg)}
+.spark{position:absolute;right:26px;top:43%;font-size:85px;color:var(--paper);z-index:2;animation:turn 30s linear infinite}
+.about{display:grid;grid-template-columns:1fr 2fr;gap:50px;padding-block:55px 65px;border-top:1px solid var(--line)}h2{font-size:clamp(32px,4vw,46px);letter-spacing:-1.5px;margin:0 0 22px}.about div p,.challenge p:not(.eyebrow){line-height:1.8;color:#5e6b60;max-width:530px}
+.challenge{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding-block:50px 70px;border-top:1px solid var(--line)}.challenge-card{background:#e8ebdf;padding:30px;display:flex;flex-direction:column;align-items:start;justify-content:space-between;min-height:220px}.challenge-card p{margin-top:0}.challenge-card.pulse{animation:enter .4s ease}
+footer{border-top:1px solid var(--line);padding-block:25px;display:flex;justify-content:space-between;gap:20px;font-size:11px}
+.js-motion .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.js-motion .reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes turn{to{transform:rotate(360deg)}}
+@media(max-width:760px){.header{padding-block:20px}.logo .logo-text{display:none}nav{gap:18px;font-size:12px}.hero{grid-template-columns:1fr;gap:40px;padding-block:45px}.poster{width:min(420px,100%);justify-self:center}.poster-letter{font-size:300px}.about,.challenge{grid-template-columns:1fr;gap:20px;padding-block:35px}h1{font-size:62px}footer{font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js-motion .reveal{opacity:1;transform:none}}
