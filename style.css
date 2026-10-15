@@ -65,3 +65,88 @@ footer{border-top:1px solid var(--line);padding-block:25px;display:flex;justify-
 @media(max-width:760px){.header{padding-block:20px}.logo .logo-text{display:none}nav{gap:18px;font-size:12px}footer{font-size:10px}}
 @media(max-width:680px){.header-label{display:none}.landing{padding-block:35px 45px}.tiles{grid-template-columns:1fr;gap:18px}.tile{min-height:310px}.tile-symbol{height:85px;line-height:85px;font-size:65px}.landing-intro{margin-bottom:30px}.subpage{padding-block:35px 55px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js-motion .reveal{opacity:1;transform:none}.tile:hover,.js-motion .tile.visible:hover{transform:none}}
+
+/* Biblioteka tematów i widok pełnego artykułu. */
+[hidden]{display:none!important}
+.study-page{max-width:900px;padding-block:35px 65px;min-height:75vh}
+.study-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:0 22px;margin-bottom:28px;border-bottom:1px solid var(--line);font-size:12px}
+.study-toolbar>a:first-child{color:var(--sage)}
+.study-toolbar>a:first-child:hover{color:var(--gold)}
+.study-button{display:inline-flex;justify-content:center;align-items:center;padding:12px 18px;border-radius:10px;background:var(--gold);color:var(--shadow);font-size:12px;font-weight:700;border:1px solid var(--gold);text-align:center;transition:background .2s}
+.study-button:hover{background:var(--off-white)}
+.study-button-outline{background:transparent;color:var(--gold);white-space:nowrap}
+.study-button-outline:hover{background:var(--gold);color:var(--shadow)}
+.study-page h1{font-size:clamp(40px,6vw,60px)}
+.study-page .intro{max-width:660px}
+.study-source{display:flex;justify-content:space-between;align-items:center;gap:22px;background:var(--green);border:1px solid var(--line);border-radius:16px;padding:22px;margin-block:28px}
+.study-source .eyebrow{margin:0 0 7px;font-size:9px}
+.study-source h2{font-size:17px;letter-spacing:-.3px;margin:0 0 8px;line-height:1.4}
+.study-source p:last-child{font-size:12px;color:var(--sage);margin:0;line-height:1.7}
+.study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.study-card{display:flex;flex-direction:column;gap:20px;padding:25px;background:var(--green);border:1px solid var(--line);border-radius:16px;transition:transform .2s,border-color .2s}
+.study-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.study-card:last-child{grid-column:1/-1}
+.study-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:10px;color:var(--sage);line-height:1.6}
+.study-tag{border:1px solid var(--line);background:var(--shadow);color:var(--gold);border-radius:20px;padding:4px 10px;font-weight:700}
+.study-card h2{font-size:22px;letter-spacing:-.5px;line-height:1.4;margin:0}
+.study-read{margin-top:auto;color:var(--gold);font-size:12px;font-weight:700;display:flex;justify-content:space-between;gap:15px}
+.study-bottom{text-align:center;margin-top:30px}
+.study-article{padding:36px;background:var(--green);border:1px solid var(--line);border-radius:22px}
+.article-heading{padding-bottom:25px;border-bottom:1px solid var(--line)}
+.article-heading h2{font-size:clamp(26px,4vw,36px);line-height:1.3;letter-spacing:-1px;margin:18px 0 0}
+.article-body{font-size:15px;line-height:1.9;color:var(--off-white)}
+.article-body>div:first-child{margin-block:25px;padding:22px;background:var(--shadow);border:1px solid var(--line);border-radius:14px}
+.article-body>div:first-child>span{display:block;color:var(--gold);font-weight:700;margin-bottom:12px;font-size:13px}
+.article-body ul{padding-left:22px;margin:0}.article-body li+li{margin-top:8px}
+.article-body h3{font-size:18px;color:var(--gold);margin:28px 0 10px;line-height:1.5}
+.article-body p{margin:0 0 18px}
+.article-actions{padding-top:25px;margin:28px 0 0;border-top:1px solid var(--line);border-bottom:0;padding-bottom:0}
+@media(max-width:600px){.study-grid{grid-template-columns:1fr}.study-source{flex-direction:column;align-items:flex-start}.study-toolbar{gap:12px;font-size:11px}.study-button{padding:10px 12px;font-size:11px}.study-article{padding:22px}.study-card{padding:22px}.article-actions{align-items:stretch;flex-direction:column}.study-meta{gap:7px}}
+@media(prefers-reduced-motion:reduce){.study-card:hover{transform:none}}
+
+/* Regulamin i pola do uzupełnienia. */
+.rules-note{margin-block:28px;padding:18px 22px;background:var(--green);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;font-size:13px;line-height:1.8;color:var(--sage)}
+.rules-note strong{color:var(--gold)}
+.rules-document{background:var(--green);border:1px solid var(--line);border-radius:16px;padding:34px;overflow-wrap:anywhere}
+.rules-document section+section{border-top:1px solid var(--line);margin-top:30px;padding-top:30px}
+.rules-document h2{font-size:23px;line-height:1.4;letter-spacing:-.5px;margin:0 0 20px}
+.rules-document ol,.rules-document ul{padding-left:24px;margin:0;font-size:14px;line-height:1.9}
+.rules-document li{padding-left:5px}
+.rules-document li+li{margin-top:12px}
+.rules-document ul{margin-top:12px;list-style-type:disc}
+.rules-document li::marker{color:var(--gold);font-weight:600}
+.rules-placeholder{color:var(--gold);font-weight:600}
+@media(max-width:600px){.rules-document{padding:22px 18px}.rules-document h2{font-size:20px}.rules-document ol,.rules-document ul{padding-left:20px}.rules-note{padding:16px 18px}}
+
+/* Quiz treningowy. */
+.quiz-card{padding:30px;margin-top:28px;background:var(--green);border:1px solid var(--line);border-radius:18px}
+.quiz-card h2{font-size:26px;letter-spacing:-.6px;line-height:1.5}
+.quiz-card p{font-size:14px;line-height:1.85}
+.quiz-card .study-button{margin-top:16px;cursor:pointer;font:inherit;font-size:13px}
+.quiz-status{display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:12px;color:var(--sage)}
+.quiz-clock strong{color:var(--gold);font-size:18px;font-variant-numeric:tabular-nums}
+.quiz-clock .time-low{color:var(--off-white);text-decoration:underline;text-underline-offset:4px}
+#quiz-timebar{display:block;width:100%;height:7px;margin:18px 0 28px;accent-color:var(--gold);border:0;background:var(--shadow);border-radius:5px;overflow:hidden}
+#quiz-timebar::-webkit-progress-bar{background:var(--shadow)}
+#quiz-timebar::-webkit-progress-value{background:var(--gold)}
+#quiz-timebar::-moz-progress-bar{background:var(--gold)}
+.quiz-fieldset{border:0;padding:0;margin:0;min-width:0}
+#question-title{white-space:pre-line}
+#quiz-options{display:grid;gap:12px}
+.quiz-option{display:flex;align-items:flex-start;gap:14px;padding:18px;background:var(--shadow);border:1px solid var(--line);border-radius:12px;cursor:pointer;font-size:14px;line-height:1.7;overflow-wrap:anywhere}
+.quiz-option:hover,.quiz-option:has(input:checked){border-color:var(--gold)}
+.quiz-option:has(input:checked){background:rgb(111 106 55 / 20%)}
+.quiz-option:focus-within{outline:2px solid var(--gold);outline-offset:3px}
+.quiz-option input{accent-color:var(--gold);margin-top:5px;flex-shrink:0;width:17px;height:17px}
+.study-button:disabled{opacity:.45;cursor:not-allowed}
+.study-button:disabled:hover{background:var(--gold)}
+.quiz-summary{text-align:center}
+.quiz-summary .quiz-score{font-family:'Space Grotesk',Arial,sans-serif;font-size:64px;color:var(--gold);line-height:1.2;margin:15px 0}
+.quiz-review-title{font-size:25px;letter-spacing:-.6px;margin-top:35px}
+.quiz-review-item{padding:24px;background:var(--green);border:1px solid var(--line);border-left:4px solid var(--sage);border-radius:12px;margin-top:16px;overflow-wrap:anywhere}
+.quiz-review-item.answer-correct{border-left-color:var(--gold)}
+.quiz-review-item h3{font-size:16px;line-height:1.7;white-space:pre-line;margin:0 0 15px}
+.quiz-review-item p{font-size:13px;line-height:1.8;margin:8px 0}
+.review-status{color:var(--gold);font-weight:700}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:600px){.quiz-card{padding:22px 18px}.quiz-card h2{font-size:21px}.quiz-option{padding:14px}.quiz-card .study-button{width:100%}}

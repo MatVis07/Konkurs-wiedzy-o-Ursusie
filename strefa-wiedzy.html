@@ -5,21 +5,175 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strefa wiedzy — Konkurs wiedzy o Ursusie</title>
   <link rel="stylesheet" href="style.css">
-  <script src="animations.js" defer></script>
+  <script src="strefa-wiedzy.js" defer></script>
 </head>
 <body>
   <header class="header container">
     <a class="logo" href="index.html" aria-label="Ursus — strona główna">U<span>.</span> <span class="logo-text">KONKURS WIEDZY O URSUSIE</span></a>
     <nav aria-label="Menu główne"><a href="index.html">Strona główna ↗</a></nav>
   </header>
-  <main class="container subpage">
-    <a class="back-link" href="index.html">← Wróć do strony głównej</a>
-    <p class="eyebrow">01 / ODKRYWAJ</p>
-    <h1>Strefa wiedzy</h1>
-    <p class="intro">Tutaj znajdziesz materiały do przygotowania się do konkursu wiedzy o Ursusie.</p>
-    <section class="content-notice reveal" aria-label="Status treści">
-      <h2>Materiały w przygotowaniu</h2>
-      <p>Treści edukacyjne i materiały źródłowe zostaną dodane po ich przygotowaniu przez organizatora.</p>
+  <main class="container study-page">
+    <section id="tematy" aria-labelledby="study-title">
+      <div class="study-toolbar"><a href="index.html">← Wróć do menu</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      <p class="eyebrow">BIBLIOTEKA WIEDZY</p>
+      <h1 id="study-title" tabindex="-1">Strefa wiedzy</h1>
+      <p class="intro">Wybierz temat i poznaj historię Ursusa. W każdym opracowaniu znajdziesz podsumowanie najważniejszych faktów.</p>
+      <aside class="study-source"><div><p class="eyebrow">MAZOWIECKA BIBLIOTEKA CYFROWA</p><h2>Monografia varsavianistyczna: Ursuviana</h2><p>Materiał źródłowy wskazany w przeniesionym opracowaniu.</p></div><a class="study-button study-button-outline" href="https://mbc.cyfrowemazowsze.pl/dlibra/publication/79499/edition/74944/content" target="_blank" rel="noopener noreferrer">Oryginał PDF ↗</a></aside>
+      <div class="study-grid">      <a class="study-card" href="#temat-czechowice" data-topic="czechowice">
+        <div class="study-meta"><span class="study-tag">Początki Osadnictwa</span><span>Neolit • XV wiek • 1918 • 1937</span></div>
+        <h2>Czechowice, Skorosze i Gołąbki – Od średniowiecznych wsi do serca gminy</h2>
+        <span class="study-read">Czytaj pełne opracowanie <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="study-card" href="#temat-p7p" data-topic="p7p">
+        <div class="study-meta"><span class="study-tag">Narodziny Legendy</span><span>1893 • 1902 • 1910</span></div>
+        <h2>Tajemnica P7P i Henryk Sienkiewicz – Jak powstała fabryka Ursus</h2>
+        <span class="study-read">Czytaj pełne opracowanie <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="study-card" href="#temat-ciagowka" data-topic="ciagowka">
+        <div class="study-meta"><span class="study-tag">Inżynieria i Przemysł</span><span>1922 • 1924 • 1930 • 1947 • 1974</span></div>
+        <h2>Od „Ciągówki” do potęgi Ursusa – Wielka fabryka traktorów i zbrojeniówka</h2>
+        <span class="study-read">Czytaj pełne opracowanie <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="study-card" href="#temat-wojna" data-topic="wojna">
+        <div class="study-meta"><span class="study-tag">II Wojna Światowa</span><span>1939–1945</span></div>
+        <h2>Wrzesień 1939, Szpital Polowy i Kompania AK „Goplana”</h2>
+        <span class="study-read">Czytaj pełne opracowanie <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="study-card" href="#temat-czerwiec" data-topic="czerwiec">
+        <div class="study-meta"><span class="study-tag">Droga do Wolności</span><span>1952 • 1954 • 1968 • 1976 • 1977</span></div>
+        <h2>Prawa miejskie, Czerwiec '76 i włączenie Ursusa do Warszawy</h2>
+        <span class="study-read">Czytaj pełne opracowanie <span aria-hidden="true">→</span></span>
+      </a></div>
+      <div class="study-bottom"><a class="study-button" href="cwiczenia.html">Wiedza przyswojona — przejdź do ćwiczeń →</a></div>
+    </section>
+    <section id="temat-czechowice" class="study-panel" aria-labelledby="title-czechowice">
+      <div class="study-toolbar"><a href="#tematy" data-back>← Wróć do wyboru tematów</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      <article class="study-article">
+        <header class="article-heading"><div class="study-meta"><span class="study-tag">Początki Osadnictwa</span><span>Neolit • XV wiek • 1918 • 1937</span></div><h2 id="title-czechowice" tabindex="-1">Czechowice, Skorosze i Gołąbki – Od średniowiecznych wsi do serca gminy</h2></header>
+        <div class="article-body">
+          <div>
+            <span>⚡ Podsumowanie faktów do konkursu:</span>
+            <ul>
+              <li><strong>Neolityczne znaleziska:</strong> w 1877 roku w Czechowicach odnaleziono grób neolityczny (ceramika i narzędzia trafiły do Moskwy).</li>
+              <li><strong>Pierwsze wzmianki:</strong> Czechowice (lata 1417–1429), Gołąbki (rok 1425 lub 1438).</li>
+              <li><strong>Gmina Skorosze:</strong> w maju 1918 r. obejmowała m.in. Skorosze i Czechowice. W 1937 r. jej stolicę przeniesiono do Czechowic.</li>
+              <li><strong>Zabytkowa kapliczka:</strong> z przełomu XVIII i XIX w. z obrazem Matki Boskiej Częstochowskiej przy ul. Dzieci Warszawy / Skoroszewskiej.</li>
+              <li><strong>Dawne nazwy ulic:</strong> ul. Dzieci Warszawy to dawniej ul. Jana III Sobieskiego, a ul. Bohaterów Warszawy to dawniej ul. Józefa Piłsudskiego.</li>
+            </ul>
+          </div>
+          <h3>1. Ślady osadnictwa sprzed tysięcy lat</h3>
+          <p>W 1877 roku na terenie Czechowic rolnicy natrafili na <strong>zabytkowy grób neolityczny</strong>. Ówczesne władze carskie zabezpieczyły te bezcenne artefakty i wywiozły je do Moskwy, gdzie spoczywają do dziś.</p>
+          <h3>2. Średniowieczne korzenie</h3>
+          <p>W dokumentach z <strong>XV wieku</strong> pojawiają się pierwsze zapiski o tutejszych majątkach. Wzmianki o <strong>Czechowicach</strong> datowane są na lata <strong>1417–1429</strong>, natomiast o <strong>Gołąbkach</strong> na lata <strong>1425 oraz 1438</strong>.</p>
+          <h3>3. Gmina Skorosze</h3>
+          <p>W maju 1918 roku gmina Skorosze składała się głównie z dwóch kluczowych wsi: <strong>Skoroszów i Czechowic</strong>. Wraz z rozwojem fabryki, w <strong>1937 roku</strong> podjęto decyzję o oficjalnym przeniesieniu siedziby urzędu gminy ze Skoroszy do Czechowic.</p>
+          <h3>4. Zabytki i dawne ulice</h3>
+          <p>Najstarszym zachowanym obiektem jest <strong>kapliczka z przełomu XVIII i XIX wieku</strong> przy zbiegu dzisiejszych ulic <strong>Dzieci Warszawy i Skoroszewskiej</strong>. Dawniej ulica Dzieci Warszawy nosiła nazwę <strong>Jana III Sobieskiego</strong>, a ulica Bohaterów Warszawy nosiła nazwę <strong>Józefa Piłsudskiego</strong>.</p>
+        </div>
+        <div class="study-toolbar article-actions"><a href="#tematy" data-back>← Wybierz inny temat</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      </article>
+    </section>
+    <section id="temat-p7p" class="study-panel" aria-labelledby="title-p7p">
+      <div class="study-toolbar"><a href="#tematy" data-back>← Wróć do wyboru tematów</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      <article class="study-article">
+        <header class="article-heading"><div class="study-meta"><span class="study-tag">Narodziny Legendy</span><span>1893 • 1902 • 1910</span></div><h2 id="title-p7p" tabindex="-1">Tajemnica P7P i Henryk Sienkiewicz – Jak powstała fabryka Ursus</h2></header>
+        <div class="article-body">
+          <div>
+            <span>⚡ Podsumowanie faktów do konkursu:</span>
+            <ul>
+              <li><strong>Data powstania:</strong> 1893 rok przy ulicy Siennej w Warszawie.</li>
+              <li><strong>Oryginalna nazwa:</strong> Towarzystwo Udziałowe Specyalnej Fabryki Armatur.</li>
+              <li><strong>Co oznacza skrót P7P?</strong> Posag 7 Panien – kapitał z posagów córek założycieli!</li>
+              <li><strong>Skąd nazwa Ursus?</strong> W 1902 r. od postaci siłacza Ursusa z powieści „Quo Vadis” Henryka Sienkiewicza.</li>
+              <li><strong>Oddział na Woli (1910 r.):</strong> produkował silniki spalinowe sprzedawane m.in. w Rosji.</li>
+            </ul>
+          </div>
+          <h3>1. Początki przy ulicy Siennej (1893)</h3>
+          <p>W 1893 roku w Warszawie powstało <em>Towarzystwo Udziałowe Specyalnej Fabryki Armatur</em>. Pierwszy warsztat mieścił się przy ulicy Siennej 15.</p>
+          <h3>2. Sekret „P7P”</h3>
+          <p>Założyciele przeznaczyli na rozruch firmy <strong>pieniądze odłożone na posagi dla swoich siedmiu córek</strong>! Na pamiątkę tego fabryka przyjęła monogram <strong>P7P</strong> – <strong>„Posag 7 Panien”</strong>.</p>
+          <h3>3. Nowa nazwa w 1902 roku</h3>
+          <p>W 1902 roku, pod wrażeniem powieści <em>Quo Vadis</em> Henryka Sienkiewicza, nowy silnik nazwano <strong>„Ursus”</strong>. Nazwa stała się wkrótce oficjalną nazwą całego przedsiębiorstwa.</p>
+          <h3>4. Oddział na Woli (1910)</h3>
+          <p>W 1910 roku uruchomiono nowoczesny oddział fabryki na Woli, wytwarzający silniki wysokoprężne eksportowane na Wschód.</p>
+        </div>
+        <div class="study-toolbar article-actions"><a href="#tematy" data-back>← Wybierz inny temat</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      </article>
+    </section>
+    <section id="temat-ciagowka" class="study-panel" aria-labelledby="title-ciagowka">
+      <div class="study-toolbar"><a href="#tematy" data-back>← Wróć do wyboru tematów</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      <article class="study-article">
+        <header class="article-heading"><div class="study-meta"><span class="study-tag">Inżynieria i Przemysł</span><span>1922 • 1924 • 1930 • 1947 • 1974</span></div><h2 id="title-ciagowka" tabindex="-1">Od „Ciągówki” do potęgi Ursusa – Wielka fabryka traktorów i zbrojeniówka</h2></header>
+        <div class="article-body">
+          <div>
+            <span>⚡ Podsumowanie faktów do konkursu:</span>
+            <ul>
+              <li><strong>1922 r.:</strong> pierwszy polski ciągnik rolniczy – tzw. <em>ciągówka</em>.</li>
+              <li><strong>1923 r.:</strong> rajd samochodowy wygrywa włoska marka <strong>S.P.A. (SPA)</strong>.</li>
+              <li><strong>1924 r.:</strong> start budowy fabryki w Czechowicach i umowa z wojskiem.</li>
+              <li><strong>1930 r.:</strong> Bank Gospodarstwa Krajowego przejmuje Ursus (włączenie do PZInż).</li>
+              <li><strong>Powojenne modele:</strong> C-45 (1947–1950), licencyjny Zetor (C-4011 od 1961 r.) oraz licencja Massey-Ferguson (1974 r.).</li>
+            </ul>
+          </div>
+          <h3>1. Pierwszy polski traktor (1922)</h3>
+          <p>W 1922 roku w zakładach Ursusa powstał pierwszy polski ciągnik rolniczy nazwany <strong>„ciągówką”</strong>.</p>
+          <h3>2. Rajd z 1923 roku i fabryka w Czechowicach (1924)</h3>
+          <p>W 1923 roku zorganizowano rajd decydujący o licencji na ciężarówki – w kategorii półciężarówek wygrała włoska marka <strong>S.P.A. (SPA)</strong>. W 1924 r. rozpoczęto budowę hal w Czechowicach.</p>
+          <h3>3. PZInż i czołgi (1930)</h3>
+          <p>W 1930 r. zakłady przejął Bank Gospodarstwa Krajowego, włączając je do <strong>Państwowych Zakładów Inżynierii (PZInż)</strong>. Produkowano tu czołgi 7TP i tankietki TKS.</p>
+          <h3>4. Od C-45 do Massey-Ferguson</h3>
+          <p>Od 1947 r. produkowano traktor <strong>C-45</strong>, w 1961 r. wdrożono model <strong>C-4011</strong> (Zetor), a w 1974 r. kupiono licencję od brytyjskiego <strong>Massey-Ferguson</strong>.</p>
+        </div>
+        <div class="study-toolbar article-actions"><a href="#tematy" data-back>← Wybierz inny temat</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      </article>
+    </section>
+    <section id="temat-wojna" class="study-panel" aria-labelledby="title-wojna">
+      <div class="study-toolbar"><a href="#tematy" data-back>← Wróć do wyboru tematów</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      <article class="study-article">
+        <header class="article-heading"><div class="study-meta"><span class="study-tag">II Wojna Światowa</span><span>1939–1945</span></div><h2 id="title-wojna" tabindex="-1">Wrzesień 1939, Szpital Polowy i Kompania AK „Goplana”</h2></header>
+        <div class="article-body">
+          <div>
+            <span>⚡ Podsumowanie faktów do konkursu:</span>
+            <ul>
+              <li><strong>Wrzesień 1939 r.:</strong> Wehrmacht wkracza do Czechowic.</li>
+              <li><strong>Dr Władysława Włoczewska:</strong> zorganizowała szpital polowy dla rannych polskich żołnierzy.</li>
+              <li><strong>Kompania AK „Goplana”:</strong> dowódca ppor. <strong>Stanisław Bodych ps. „Rawicz”</strong>.</li>
+              <li><strong>Lokalni bohaterowie:</strong> Marian Krawczyk i Jerzy Włoczewski działający w konspiracji.</li>
+            </ul>
+          </div>
+          <h3>1. Szpital polowy dr Władysławy Włoczewskiej</h3>
+          <p>We wrześniu 1939 r. lekarka <strong>dr Władysława Włoczewska</strong> wraz z wolontariuszkami zorganizowała szpital polowy, ratując rannych polskich żołnierzy przed niewolą.</p>
+          <h3>2. Kompania AK „Goplana”</h3>
+          <p>W konspiracji Polskiego Państwa Podziemnego sformowano kompanię AK <strong>„Goplana”</strong>, którą dowodził ppor. <strong>Stanisław Bodych ps. „Rawicz”</strong>.</p>
+        </div>
+        <div class="study-toolbar article-actions"><a href="#tematy" data-back>← Wybierz inny temat</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      </article>
+    </section>
+    <section id="temat-czerwiec" class="study-panel" aria-labelledby="title-czerwiec">
+      <div class="study-toolbar"><a href="#tematy" data-back>← Wróć do wyboru tematów</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      <article class="study-article">
+        <header class="article-heading"><div class="study-meta"><span class="study-tag">Droga do Wolności</span><span>1952 • 1954 • 1968 • 1976 • 1977</span></div><h2 id="title-czerwiec" tabindex="-1">Prawa miejskie, Czerwiec '76 i włączenie Ursusa do Warszawy</h2></header>
+        <div class="article-body">
+          <div>
+            <span>⚡ Podsumowanie faktów do konkursu:</span>
+            <ul>
+              <li><strong>1952 r.:</strong> utworzenie miasta Czechowice, <strong>1954 r.:</strong> zmiana nazwy na miasto Ursus.</li>
+              <li><strong>1968 r.:</strong> rozpoczęcie budowy osiedla Niedźwiadek.</li>
+              <li><strong>25 czerwca 1976 r.:</strong> strajk robotników ZPC Ursus, zablokowanie torów i początek KOR.</li>
+              <li><strong>Tajna Komisja Zakładowa:</strong> podziemna walka NSZZ „Solidarność” o prawa robotników.</li>
+              <li><strong>1 sierpnia 1977 r.:</strong> włączenie miasta Ursus do Warszawy (początkowo w dzielnicy Ochota).</li>
+              <li><strong>5 osiedli Ursusa:</strong> Czechowice, Skorosze, Gołąbki, Szamoty, Niedźwiadek (sąsiedzi: Włochy, Bemowo).</li>
+            </ul>
+          </div>
+          <h3>1. Miasto Czechowice i miasto Ursus</h3>
+          <p>W 1952 r. Czechowice otrzymały prawa miejskie, a w 1954 r. zmieniono nazwę na <strong>Ursus</strong>. W 1968 r. ruszyła budowa osiedla <strong>Niedźwiadek</strong>.</p>
+          <h3>2. Strajk 25 Czerwca 1976 roku</h3>
+          <p>25 czerwca 1976 r. robotnicy ogłosili strajk i <strong>zablokowali międzynarodowe tory kolejowe</strong>. W odpowiedzi na brutalne represje powstał <strong>Komitet Obrony Robotników (KOR)</strong>.</p>
+          <h3>3. Przyłączenie do Warszawy (1977)</h3>
+          <p><strong>1 sierpnia 1977 roku miasto Ursus włączono do Warszawy</strong>. Dzielnica składa się z 5 osiedli i graniczy z Włochami oraz Bemowem.</p>
+        </div>
+        <div class="study-toolbar article-actions"><a href="#tematy" data-back>← Wybierz inny temat</a><a class="study-button" href="cwiczenia.html">Przejdź do ćwiczeń →</a></div>
+      </article>
     </section>
   </main>
   <footer class="container"><span>Konkurs wiedzy o Ursusie</span><a href="index.html">Strona główna</a></footer>
