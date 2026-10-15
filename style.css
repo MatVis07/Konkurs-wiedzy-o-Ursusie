@@ -204,3 +204,8 @@ footer{border-top:1px solid var(--line);padding-block:25px;display:flex;justify-
 .social-links a{display:inline-flex;align-items:center;gap:6px;padding-block:5px}
 .social-links a:hover{color:var(--off-white)}
 @media(max-width:400px){.home-footer{column-gap:12px}.social-links{gap:12px;font-size:10px}}
+
+/* Rozmyte zdjęcie pozostaje pod treścią tylko na stronie głównej. */
+.home-page{position:relative;isolation:isolate;background:var(--shadow)}
+.home-page::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:url('assets/tlo-ursus.jpg') center 48% / cover no-repeat;filter:blur(9px);transform:scale(1.06)}
+.home-page::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgb(7 19 16 / 88%),rgb(13 34 29 / 76%) 45%,rgb(7 19 16 / 92%))}
