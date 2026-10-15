@@ -32,3 +32,32 @@ footer{border-top:1px solid var(--line);padding-block:25px;display:flex;justify-
 @keyframes turn{to{transform:rotate(360deg)}}
 @media(max-width:760px){.header{padding-block:20px}.logo .logo-text{display:none}nav{gap:18px;font-size:12px}.hero{grid-template-columns:1fr;gap:40px;padding-block:45px}.poster{width:min(420px,100%);justify-self:center}.poster-letter{font-size:300px}.about,.challenge{grid-template-columns:1fr;gap:20px;padding-block:35px}h1{font-size:62px}footer{font-size:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js-motion .reveal{opacity:1;transform:none}}
+
+/* Strona startowa konkursu i podstrony. */
+.header-label{font-size:10px;letter-spacing:1.5px;font-weight:600}
+.landing{padding-block:60px 75px}
+.landing-intro{max-width:760px;margin-bottom:45px}
+.landing-intro h1{margin-block:20px;font-size:clamp(54px,6vw,80px)}
+.landing-intro .intro{max-width:520px}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.tile{display:flex;flex-direction:column;min-height:365px;padding:26px;border-radius:5px;transition:box-shadow .25s,transform .25s}
+.tile:hover{transform:translateY(-7px);box-shadow:0 16px 30px #243c3215;color:inherit}
+.tile-knowledge{background:var(--ink);color:var(--paper)}
+.tile-practice{background:var(--orange);color:var(--ink)}
+.tile-rules{background:#e6e9dc;color:var(--ink)}
+.tile-knowledge:hover{color:var(--paper)}
+.tile-top{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:1.4px;font-weight:700}
+.tile-arrow{font-size:25px;transition:transform .25s}.tile:hover .tile-arrow{transform:translate(3px,-3px)}
+.tile-symbol{display:block;font-family:'Space Grotesk',Arial,sans-serif;font-size:75px;height:110px;line-height:110px}
+.tile h2{font-size:29px;letter-spacing:-1px;margin:12px 0}
+.tile p{font-size:14px;line-height:1.7;margin:0 0 28px;opacity:.85}
+.tile-link{margin-top:auto;padding-top:18px;border-top:1px solid currentColor;display:flex;justify-content:space-between;font-size:12px;font-weight:600}
+.tiles .tile:nth-child(2){transition-delay:80ms}.tiles .tile:nth-child(3){transition-delay:160ms}
+.subpage{min-height:70vh;padding-block:65px 90px;max-width:850px}
+.back-link{display:inline-block;font-size:13px;margin-bottom:35px}
+.subpage h1{font-size:clamp(45px,6vw,72px)}
+.content-notice{margin-top:35px;background:#e6e9dc;padding:28px;border-left:4px solid var(--orange);line-height:1.8}
+.content-notice h2{font-size:25px;letter-spacing:-.7px;margin:0 0 12px}
+.content-notice p{margin:0;color:#5e6b60}
+@media(max-width:900px){.tiles{gap:14px}.tile{padding:22px}.tile h2{font-size:25px}}
+@media(max-width:680px){.header-label{display:none}.landing{padding-block:35px 45px}.tiles{grid-template-columns:1fr;gap:18px}.tile{min-height:310px}.tile-symbol{height:85px;line-height:85px;font-size:65px}.landing-intro{margin-bottom:30px}.subpage{padding-block:35px 55px}}
