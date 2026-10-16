@@ -24,7 +24,7 @@
 .home-rules{display:inline-block;margin-top:18px;font-size:11px;color:var(--home-muted);text-decoration:underline;text-underline-offset:4px}
 .collage-art{position:relative;align-self:center;min-width:0}
 .collage-art img{display:block;width:112%;max-width:none;height:auto;margin-left:-6%;mix-blend-mode:multiply}
-.collage-note{position:absolute;top:6%;right:0;transform:rotate(-9deg);font-size:clamp(12px,1.4vw,19px);font-weight:700;line-height:1.4;text-transform:uppercase;letter-spacing:1.3px;background:var(--home-paper);padding:8px 12px}
+.collage-note{position:absolute;top:6%;right:0;transform:rotate(-9deg);font-family:'Segoe Print','Bradley Hand',cursive;font-size:clamp(14px,1.5vw,21px);font-weight:700;line-height:1.5;text-transform:none;letter-spacing:.2px;color:var(--home-ink);background:transparent;padding:0;border:0;box-shadow:none}
 .collage-note::after{content:"";display:block;width:60%;height:1px;background:currentColor;margin:10px 0 0 28%}
 .home-page>footer{border-color:rgb(32 40 33 / 16%);color:var(--home-muted);opacity:1;padding-block:15px}
 .home-page .social-links{color:var(--home-ink)}
