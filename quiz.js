@@ -11,7 +11,7 @@ let interval;
 function focusHeading(element) { element.focus({preventScroll:true}); }
 function startQuiz() {
   clearInterval(interval);
-  quiz = new QuizEngine(QUIZ_QUESTIONS);
+  quiz = new QuizEngine([...QUIZ_QUESTIONS, ...QUIZ_IMAGE_QUESTIONS]);
   quiz.start(Date.now());
   intro.hidden = true;
   result.hidden = true;
@@ -23,6 +23,16 @@ function renderQuestion() {
   if (quiz.done) { showResult(); return; }
   document.getElementById('quiz-progress').textContent = `Pytanie ${quiz.index + 1} z ${quiz.questions.length}`;
   title.textContent = quiz.current.question;
+  const photo = document.getElementById('quiz-photo');
+  const image = document.getElementById('quiz-image');
+  photo.hidden = !quiz.current.image;
+  if (quiz.current.image) {
+    image.src = quiz.current.image;
+    image.alt = quiz.current.imageAlt;
+  } else {
+    image.removeAttribute('src');
+    image.alt = '';
+  }
   options.replaceChildren();
   quiz.current.options.forEach((option, index) => {
     const label = document.createElement('label');
@@ -38,7 +48,7 @@ function renderQuestion() {
       if (quiz.select(index, now)) next.disabled = false;
     });
     const text = document.createElement('span');
-    text.textContent = option.text;
+    text.textContent = `${String.fromCharCode(65 + index)}. ${option.text}`;
     label.append(input, text);
     options.append(label);
   });
@@ -75,6 +85,13 @@ function showResult() {
     const correct = document.createElement('p');
     correct.textContent = `Poprawna odpowiedź: ${answer.question.options.find(option => option.correct).text}`;
     item.append(heading, status, chosen, correct);
+    if (answer.question.image) {
+      const photo = document.createElement('img');
+      photo.className = 'quiz-review-photo';
+      photo.src = answer.question.image;
+      photo.alt = answer.question.imageAlt;
+      item.insertBefore(photo, status);
+    }
     review.append(item);
   });
   focusHeading(document.getElementById('quiz-result-title'));

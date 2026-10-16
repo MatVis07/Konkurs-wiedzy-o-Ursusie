@@ -6,6 +6,7 @@
   <title>Ćwiczenia — Konkurs wiedzy o Ursusie</title>
   <link rel="stylesheet" href="style.css">
   <script src="quiz-data.js" defer></script>
+  <script src="quiz-images.js" defer></script>
   <script src="quiz-engine.js" defer></script>
   <script src="quiz.js" defer></script>
 </head>
@@ -21,7 +22,7 @@
     <p class="intro">Tutaj sprawdzisz swoją wiedzę przed konkursem.</p>
     <section id="quiz-intro" class="quiz-card">
       <h2>Sprawdź swoją wiedzę</h2>
-      <p>W każdym podejściu wylosujesz <strong>5 różnych pytań</strong> z bazy 46 pytań. Na każde masz <strong>60 sekund</strong>.</p>
+      <p>W każdym podejściu wylosujesz <strong>4 pytania tekstowe i 1 pytanie ze zdjęciem</strong>. Rozpoznaj miejsce w Ursusie i wybierz odpowiedź A, B, C lub D. Na każde pytanie masz <strong>60 sekund</strong>.</p>
       <p>Możesz zmieniać wybór do końca czasu. Po jego upływie zapiszemy ostatnio zaznaczoną odpowiedź i przejdziemy do kolejnego pytania. Możesz też wcześniej zatwierdzić odpowiedź przyciskiem.</p>
       <p>Za poprawną odpowiedź otrzymasz 1 punkt. Wynik i poprawne odpowiedzi zobaczysz po zakończeniu całej piątki.</p>
       <button id="quiz-start" class="study-button" type="button">Rozpocznij ćwiczenia →</button>
@@ -32,6 +33,9 @@
       <progress id="quiz-timebar" max="60" value="60" aria-label="Pozostały czas odpowiedzi"></progress>
       <fieldset class="quiz-fieldset"><legend class="visually-hidden">Wybierz jedną odpowiedź</legend>
         <h2 id="question-title" tabindex="-1"></h2>
+        <figure id="quiz-photo" class="quiz-photo" hidden>
+          <img id="quiz-image" alt="" decoding="async">
+        </figure>
         <div id="quiz-options" role="radiogroup" aria-labelledby="question-title"></div>
       </fieldset>
       <button id="quiz-next" class="study-button" type="button" disabled>Zatwierdź i przejdź dalej →</button>

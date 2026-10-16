@@ -209,3 +209,21 @@ footer{border-top:1px solid var(--line);padding-block:25px;display:flex;justify-
 .home-page{position:relative;isolation:isolate;background:var(--shadow)}
 .home-page::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:url('assets/tlo-ursus.jpg') center 48% / cover no-repeat;filter:blur(9px);transform:scale(1.06)}
 .home-page::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgb(7 19 16 / 88%),rgb(13 34 29 / 76%) 45%,rgb(7 19 16 / 92%))}
+
+/* Zdjęcia w pytaniach nie są przycinane ani rozmywane. */
+.quiz-photo{margin:0 0 22px;padding:12px;background:var(--shadow);border:1px solid var(--line);border-radius:12px;text-align:center}
+.quiz-photo img{display:block;width:100%;max-height:340px;object-fit:contain;margin:auto;border-radius:6px}
+.quiz-review-photo{display:block;max-width:100%;max-height:210px;object-fit:contain;margin-block:16px;border-radius:8px}
+@media(max-width:600px){.quiz-photo img{max-height:280px}}
+
+/* Bibliografia i odsyłacze do książki. */
+.study-bibliography{margin-block:30px}
+.study-bibliography>h2{font-size:23px;letter-spacing:-.5px}
+.bibliography-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.bibliography-grid .study-source{margin:0;flex-direction:column;align-items:flex-start;justify-content:space-between}
+.bibliography-grid h3{font-size:17px;line-height:1.5;margin:0 0 8px}
+.article-body .book-reference{font-size:12px;line-height:1.7;color:var(--sage);margin-block:12px 24px}
+.book-reference a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.source-difference{padding:18px;margin-block:20px;border-left:3px solid var(--gold);background:var(--shadow);font-size:13px;line-height:1.8}
+.study-grid .study-card:last-child{grid-column:auto}
+@media(max-width:600px){.bibliography-grid{grid-template-columns:1fr}}
