@@ -1,0 +1,47 @@
+/* Wspólny motyw papieru i zielonego atramentu dla podstron. */
+:root{--paper-bg:#eee8db;--paper-sheet:#f5f0e7;--paper-ink:#202821;--paper-muted:#505b4d;--paper-accent:#607457;--paper-line:rgb(32 40 33 / 18%)}
+html{background:var(--paper-bg)}
+body:not(.home-page){position:relative;isolation:isolate;background:radial-gradient(ellipse at 55% 10%,var(--paper-sheet),transparent 65%),var(--paper-bg);color:var(--paper-ink)}
+body:not(.home-page)::before{content:"";position:absolute;top:105px;right:0;width:min(380px,65vw);height:340px;background:url('assets/ursus-collage.png') center / contain no-repeat;opacity:.055;mix-blend-mode:multiply;z-index:-1;pointer-events:none;mask-image:radial-gradient(ellipse,#000 25%,transparent 72%)}
+body:not(.home-page) .header{padding-block:22px;border-color:var(--paper-line)}
+body:not(.home-page) .logo-image{width:146px}
+body:not(.home-page) .logo-image img{filter:none;opacity:1}
+body:not(.home-page) .logo-text{font-size:9px;letter-spacing:1px;max-width:125px}
+body:not(.home-page) .header nav{font-size:12px;font-weight:700}
+body:not(.home-page) .intro,body:not(.home-page) .back-link,body:not(.home-page) footer{color:var(--paper-muted)}
+body:not(.home-page) .eyebrow{color:var(--paper-accent)}
+body:not(.home-page) h1{font-weight:700;line-height:1.05;letter-spacing:-2.5px}
+body:not(.home-page) a:focus-visible,body:not(.home-page) button:focus-visible{outline-color:var(--paper-accent)}
+body:not(.home-page) .header nav a:hover,body:not(.home-page) footer a:hover,body:not(.home-page) .back-link:hover{color:var(--paper-accent)}
+body:not(.home-page) footer{border-color:var(--paper-line)}
+body:not(.home-page) .study-button{background:var(--paper-ink);color:var(--paper-sheet);border-color:var(--paper-ink);border-radius:999px;padding:12px 20px;transition:background .2s,transform .2s}
+body:not(.home-page) .study-button:hover{background:var(--paper-accent);border-color:var(--paper-accent)}
+body:not(.home-page) .study-button-outline{background:transparent;color:var(--paper-ink);border-color:var(--paper-line)}
+body:not(.home-page) .study-button-outline:hover{background:var(--paper-ink);color:var(--paper-sheet)}
+body:not(.home-page) .study-button:disabled{background:var(--paper-ink);opacity:.4;cursor:not-allowed}
+.study-source,.study-card,.study-article,.rules-document,.quiz-card,.quiz-review-item{background:rgb(245 240 231 / 85%);border-color:var(--paper-line);border-radius:12px;box-shadow:0 5px 18px rgb(32 40 33 / 3%)}
+.study-toolbar,.article-heading,.article-actions,.rules-document section+section{border-color:var(--paper-line)}
+.study-toolbar>a:first-child,.study-meta,.study-source p:last-child,.article-body .book-reference,.quiz-status{color:var(--paper-muted)}
+.study-toolbar>a:first-child:hover,.study-read,.book-reference a,.article-body h3{color:var(--paper-accent)}
+.study-tag{background:rgb(96 116 87 / 9%);border-color:rgb(96 116 87 / 20%);color:var(--paper-accent)}
+.study-card:hover{border-color:var(--paper-accent);box-shadow:0 9px 22px rgb(32 40 33 / 7%)}
+.article-body{color:var(--paper-ink)}
+.article-body>div:first-child,.source-difference{background:rgb(96 116 87 / 8%);border-color:var(--paper-line);border-left-color:var(--paper-accent)}
+.article-body>div:first-child>span{color:var(--paper-accent)}
+.rules-note{background:rgb(181 167 123 / 15%);border-color:var(--paper-line);border-left-color:var(--paper-accent);color:var(--paper-muted)}
+.rules-note strong,.rules-placeholder,.rules-document li::marker{color:var(--paper-accent)}
+.rules-placeholder{background:rgb(181 167 123 / 14%);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.quiz-clock strong,.quiz-clock .time-low,.quiz-summary .quiz-score,.review-status{color:var(--paper-accent)}
+#quiz-timebar{accent-color:var(--paper-accent);background:rgb(96 116 87 / 12%)}
+#quiz-timebar::-webkit-progress-bar{background:rgb(96 116 87 / 12%)}
+#quiz-timebar::-webkit-progress-value{background:var(--paper-accent)}
+#quiz-timebar::-moz-progress-bar{background:var(--paper-accent)}
+.quiz-option{background:var(--paper-sheet);border-color:var(--paper-line)}
+.quiz-option:hover,.quiz-option:has(input:checked){border-color:var(--paper-accent)}
+.quiz-option:has(input:checked){background:rgb(96 116 87 / 12%)}
+.quiz-option:focus-within{outline-color:var(--paper-accent)}
+.quiz-option input{accent-color:var(--paper-accent)}
+.quiz-photo{background:var(--paper-bg);border-color:var(--paper-line)}
+.quiz-review-item{border-left-color:var(--paper-muted)}
+.quiz-review-item.answer-correct{border-left-color:var(--paper-accent)}
+@media(max-width:600px){body:not(.home-page) .header{padding-block:16px;gap:16px}body:not(.home-page) .logo-image{width:125px}body:not(.home-page) .header nav{font-size:11px}body:not(.home-page) h1{letter-spacing:-1.5px}body:not(.home-page)::before{height:240px;top:90px}.study-toolbar{gap:12px}.study-button{max-width:100%}.rules-document{padding:24px 18px}}
