@@ -151,48 +151,6 @@ footer{border-top:1px solid var(--line);padding-block:25px;display:flex;justify-
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:600px){.quiz-card{padding:22px 18px}.quiz-card h2{font-size:21px}.quiz-option{padding:14px}.quiz-card .study-button{width:100%}}
 
-/* Strona główna dopasowana do wysokości okna, bez blokowania przewijania. */
-.home-page{min-height:100svh;display:flex;flex-direction:column}
-.home-page>.header{padding-block:clamp(12px,2.5svh,24px);flex-shrink:0}
-.home-page>.landing{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,3svh,32px);padding-block:clamp(16px,3svh,30px)}
-.home-page .landing-intro{max-width:none;margin:0;display:grid;grid-template-columns:1.2fr 1fr;column-gap:40px;align-items:end}
-.home-page .landing-intro .eyebrow{grid-column:1/-1;margin:0 0 10px}
-.home-page .landing-intro h1{font-size:clamp(42px,7.8svh,72px);margin:0}
-.home-page .landing-intro .intro{max-width:430px;margin:0;font-size:clamp(14px,1.8svh,16px)}
-.home-page .tile{min-height:0;padding:clamp(18px,2.7svh,26px)}
-.home-page .tile-symbol{height:clamp(48px,9svh,95px);line-height:clamp(48px,9svh,95px);font-size:clamp(40px,7.5svh,70px)}
-.home-page .tile h2{font-size:clamp(23px,3.6svh,29px);margin:10px 0}
-.home-page .tile p{margin-bottom:18px;font-size:13px;line-height:1.6}
-.home-page .tile-link{padding-top:14px}
-.home-page>footer{padding-block:clamp(12px,2svh,20px);flex-shrink:0}
-@media(max-width:680px){
-  .home-page .landing-intro{display:block}
-  .home-page .landing-intro h1{font-size:clamp(32px,6svh,48px);letter-spacing:-1.5px}
-  .home-page .landing-intro .intro{margin-top:10px;font-size:13px;line-height:1.6;max-width:100%}
-  .home-page .landing-intro .eyebrow{font-size:9px;margin-bottom:8px}
-  .home-page>.landing{gap:18px;padding-block:16px}
-  .home-page .tiles{gap:10px}
-  .home-page .tile{position:relative;padding:14px 18px;gap:5px}
-  .home-page .tile-top{font-size:9px;padding-right:28px}
-  .home-page .tile-arrow{position:absolute;right:18px;top:20px}
-  .home-page .tile-symbol,.home-page .tile p{display:none}
-  .home-page .tile h2{font-size:22px;margin:0}
-  .home-page .tile-link{padding-top:7px;font-size:11px}
-}
-@media(max-height:600px) and (min-width:681px){
-  .home-page .landing-intro h1{font-size:38px}
-  .home-page .tile-symbol{display:none}
-  .home-page .tile{padding:16px}
-  .home-page .tile h2{font-size:23px}
-  .home-page .tile p{margin-bottom:12px;font-size:12px}
-}
-@media(max-height:650px) and (max-width:680px){
-  .home-page .landing-intro .intro{display:none}
-  .home-page>.landing{gap:12px;padding-block:12px}
-  .home-page .tile{padding-block:10px}
-  .home-page .tile-link{display:none}
-}
-
 /* Logo z pliku: kadr pomija przezroczyste marginesy oryginału. */
 .logo-image{display:block;position:relative;width:140px;aspect-ratio:3317 / 901;overflow:hidden;flex-shrink:0}
 .logo-image img{position:absolute;display:block;width:120.591%;max-width:none;height:auto;left:-11.155%;top:-154.717%;filter:brightness(0) invert(1);opacity:.96}
@@ -204,11 +162,6 @@ footer{border-top:1px solid var(--line);padding-block:25px;display:flex;justify-
 .social-links a{display:inline-flex;align-items:center;gap:6px;padding-block:5px}
 .social-links a:hover{color:var(--off-white)}
 @media(max-width:400px){.home-footer{column-gap:12px}.social-links{gap:12px;font-size:10px}}
-
-/* Rozmyte zdjęcie pozostaje pod treścią tylko na stronie głównej. */
-.home-page{position:relative;isolation:isolate;background:var(--shadow)}
-.home-page::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:url('assets/tlo-ursus.jpg') center 48% / cover no-repeat;filter:blur(9px);transform:scale(1.06)}
-.home-page::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgb(7 19 16 / 88%),rgb(13 34 29 / 76%) 45%,rgb(7 19 16 / 92%))}
 
 /* Zdjęcia w pytaniach nie są przycinane ani rozmywane. */
 .quiz-photo{margin:0 0 22px;padding:12px;background:var(--shadow);border:1px solid var(--line);border-radius:12px;text-align:center}
@@ -227,3 +180,89 @@ footer{border-top:1px solid var(--line);padding-block:25px;display:flex;justify-
 .source-difference{padding:18px;margin-block:20px;border-left:3px solid var(--gold);background:var(--shadow);font-size:13px;line-height:1.8}
 .study-grid .study-card:last-child{grid-column:auto}
 @media(max-width:600px){.bibliography-grid{grid-template-columns:1fr}}
+
+/* Strona główna: spokojny gradient i proporcje zależne od wysokości okna. */
+.home-page{min-height:100svh;display:flex;flex-direction:column;background:radial-gradient(ellipse at 70% 20%,rgb(143 165 150 / 7%),transparent 55%),linear-gradient(145deg,var(--green),var(--shadow));}
+.home-page>.header{padding-block:clamp(16px,2.5svh,26px);flex-shrink:0}
+.home-page .logo-image{width:154px}
+.home-page .logo-text{color:var(--off-white)}
+.home-page .header-label,.home-page .intro,.home-page>footer{color:var(--off-white);opacity:.78}
+.home-page>.landing{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,4.5svh,48px);padding-block:clamp(24px,4svh,42px)}
+.home-page .landing-intro{max-width:none;margin:0;display:grid;grid-template-columns:1.2fr 1fr;column-gap:64px;align-items:end}
+.home-page .landing-intro .eyebrow{grid-column:1/-1;margin:0 0 16px;font-size:10px;letter-spacing:2.2px}
+.home-page .landing-intro h1{font-size:clamp(42px,7.5svh,72px);line-height:1.08;letter-spacing:-2.6px;margin:0}
+.home-page .landing-intro .intro{max-width:390px;margin:0 0 5px;font-size:15px;line-height:1.85}
+.home-page .tiles{gap:22px}
+.home-page .tile{min-height:0;border-radius:12px;padding:clamp(20px,2.8svh,28px);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.home-page .tile-symbol{display:flex;align-items:center;height:clamp(54px,9svh,86px);line-height:1}
+.home-page .tile-symbol svg{width:38px;height:38px}
+.home-page .tile h2{font-size:clamp(23px,3.4svh,28px);letter-spacing:-.9px;margin:8px 0 12px}
+.home-page .tile p{margin:0 0 22px;font-size:13px;line-height:1.75}
+.home-page .tile-knowledge p{color:var(--off-white);opacity:.8}
+.home-page .tile-link{padding-top:16px;border-color:rgb(7 19 16 / 25%);font-size:12px}
+.home-page .tile-knowledge .tile-link{border-color:var(--line)}
+.home-page .tile-practice{border-color:var(--gold);box-shadow:0 8px 28px rgb(181 167 123 / 9%)}
+.home-page .tile-rules{background:var(--green);color:var(--off-white)}
+.home-page .tile-rules .tile-symbol,.home-page .tile-rules .tile-arrow{color:var(--sage)}
+.home-page .tile-rules p{opacity:.8}
+.home-page .tile-rules .tile-link{border-color:var(--line)}
+.home-page .tile:hover,.js-motion .home-page .tile.visible:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 26px rgb(7 19 16 / 25%)}
+.home-page .tile-practice:hover{border-color:var(--off-white);box-shadow:0 12px 30px rgb(181 167 123 / 16%)}
+.home-page .tile:focus-visible{outline:2px solid var(--off-white);outline-offset:5px}
+.home-page>footer{padding-block:clamp(12px,2svh,20px);flex-shrink:0}
+@media(min-width:681px) and (max-width:1000px){
+ .home-page .container{width:90%}.home-page .landing-intro{column-gap:32px}
+ .home-page .tiles{gap:14px}.home-page .tile{padding:20px}
+ .home-page .tile-top{font-size:9px;letter-spacing:1px}
+ .home-page .tile h2{font-size:24px}.home-page .tile-link{font-size:11px;gap:8px}
+}
+@media(max-width:680px){
+ .home-page .logo-image{width:134px}
+ .home-page>.header{padding-block:16px}
+ .home-page>.landing{gap:24px;padding-block:24px}
+ .home-page .landing-intro{display:block}
+ .home-page .landing-intro .eyebrow{font-size:9px;margin-bottom:12px;letter-spacing:1.5px}
+ .home-page .landing-intro h1{font-size:clamp(34px,5.3svh,46px);letter-spacing:-1.5px;line-height:1.1}
+ .home-page .landing-intro .intro{max-width:100%;margin:14px 0 0;font-size:13px;line-height:1.7}
+ .home-page .tiles{gap:12px}
+ .home-page .tile{position:relative;display:grid;grid-template-columns:34px 1fr;gap:5px 14px;padding:16px 18px}
+ .home-page .tile-top{grid-column:2;font-size:9px;letter-spacing:1px;padding-right:25px}
+ .home-page .tile-arrow{position:absolute;right:18px;top:14px;font-size:21px}
+ .home-page .tile-symbol{grid-column:1;grid-row:1/4;height:auto;align-self:center;display:flex}
+ .home-page .tile-symbol svg{width:30px;height:30px}
+ .home-page .tile h2{grid-column:2;font-size:22px;margin:0;line-height:1.2}
+ .home-page .tile p{display:none}
+ .home-page .tile-link{grid-column:2;font-size:11px;padding-top:7px;margin-top:2px}
+ .home-page .home-footer{gap:8px 12px;font-size:10px}
+ .home-page .social-links{font-size:10px;gap:14px}
+}
+@media(max-height:650px) and (min-width:681px){
+ .home-page>.header{padding-block:12px}.home-page>.landing{gap:22px;padding-block:20px}
+ .home-page .landing-intro h1{font-size:40px}.home-page .landing-intro .eyebrow{margin-bottom:10px}
+ .home-page .tile{padding:18px}.home-page .tile-symbol{height:44px}
+ .home-page .tile-symbol svg{width:30px;height:30px}.home-page .tile h2{font-size:23px}
+ .home-page .tile p{margin-bottom:14px;font-size:12px}
+}
+@media(max-height:700px) and (max-width:680px){
+ .home-page>.landing{gap:18px;padding-block:16px}
+ .home-page .landing-intro h1{font-size:34px}
+ .home-page .landing-intro .intro{margin-top:10px;font-size:12px}
+ .home-page .tile{padding-block:12px}
+ .home-page .tile-link{padding-top:5px}
+}
+@media(prefers-reduced-motion:reduce){.home-page .tile:hover,.js-motion .home-page .tile.visible:hover{transform:none}}
+@media(max-width:680px) and (max-height:600px){
+ .home-page>.header{padding-block:10px}
+ .home-page .logo-image{width:126px}
+ .home-page>.landing{gap:14px;padding-block:12px}
+ .home-page .landing-intro .eyebrow{margin-bottom:8px;font-size:8px}
+ .home-page .landing-intro h1{font-size:30px}
+ .home-page .landing-intro .intro{font-size:12px;line-height:1.5;margin-top:10px}
+ .home-page .tiles{gap:9px}
+ .home-page .tile{padding:9px 14px;gap:4px 12px}
+ .home-page .tile h2{font-size:20px}
+ .home-page .tile-top{font-size:8px}
+ .home-page .tile-link{font-size:10px;padding-top:4px;margin-top:0}
+ .home-page>footer{padding-block:10px;font-size:9px;gap:6px}
+ .home-page .social-links{font-size:9px;gap:10px}
+}
