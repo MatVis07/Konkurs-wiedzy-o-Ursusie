@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const QuizEngine = require('./quiz-engine');
 const bank = vm.runInNewContext(fs.readFileSync('quiz-data.js','utf8') + fs.readFileSync('quiz-images.js','utf8') + '; [...QUIZ_QUESTIONS, ...QUIZ_IMAGE_QUESTIONS]');
-assert.equal(bank.filter(q=>!q.image).length,46);
+assert.equal(bank.filter(q=>!q.image).length,96);
 assert.equal(new Set(bank.map(q=>q.id)).size,bank.length);
 for(const q of bank){assert(q.question);assert(q.options.length>=2);assert(q.options[q.correct]);}
 for(let run=0;run<100;run++){
@@ -55,3 +55,4 @@ assert(photoQuiz.answers.every(a=>a.timedOut));
 const expanded = [...bank,{...bank.find(q=>q.image),id:'photo-test'}];
 for(let i=0;i<100;i++)assert.equal(new QuizEngine(expanded).questions.filter(q=>q.image).length,1);
 console.log('OK: 4 pytania tekstowe + 1 graficzne, pliki zdjęć, 100 losowań, tasowanie odpowiedzi, zapis po 60 sekundach, punktacja i restart.');
+
