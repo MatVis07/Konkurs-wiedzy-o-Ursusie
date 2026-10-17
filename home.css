@@ -53,7 +53,7 @@
 }
 @media(max-width:420px){.home-page>.header{justify-content:center;gap:8px}.home-navigation{margin:0;width:100%;justify-content:center;gap:26px}.home-page .logo-image{width:120px}.home-page .collage-home{padding-block:18px}.home-page .collage-copy h1{font-size:48px}.collage-art img{max-height:30svh}}
 @media(prefers-reduced-motion:reduce){.home-action:hover{transform:none}}
-.collage-art img{width:100%;margin:0;max-height:calc(100svh - 215px);object-fit:contain;mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent);mask-composite:intersect}
+.collage-art img{width:100%;margin:0;max-height:calc(100svh - 215px);object-fit:contain;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgb(0 0 0 / 35%) 7%,#000 20%,#000 80%,rgb(0 0 0 / 35%) 93%,transparent 100%),linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0%,rgb(0 0 0 / 35%) 7%,#000 20%,#000 80%,rgb(0 0 0 / 35%) 93%,transparent 100%),linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent);mask-composite:intersect}
 @media(max-width:680px){.collage-art img{max-height:30svh}}
 @media(max-width:680px) and (max-height:740px){
  .home-page>.header{padding-block:9px;gap:6px}
@@ -73,3 +73,15 @@
 }
 
 
+
+
+/* Rozmiar elementu odpowiada samemu obrazowi, bez bocznych pól object-fit. */
+.collage-art img{width:auto;max-width:100%;height:auto;margin-inline:auto}
+
+/* Nieregularny wycinek papieru zamiast prostokątnego brzegu i rozmycia. */
+.collage-art{filter:drop-shadow(1px 3px 2px rgb(62 49 29 / 10%))}
+.collage-art img{
+  -webkit-mask-image:none;
+  mask-image:none;
+  clip-path:polygon(5% 4%,10% 5%,14% 3%,18% 4%,22% 2%,26% 4%,31% 3%,35% 5%,40% 3%,45% 4%,49% 2%,54% 4%,59% 3%,63% 5%,68% 3%,73% 4%,78% 2%,83% 4%,88% 3%,94% 5%,93% 10%,96% 14%,94% 19%,97% 23%,95% 28%,97% 33%,94% 38%,96% 43%,95% 48%,98% 53%,95% 58%,97% 63%,94% 68%,96% 73%,94% 78%,96% 84%,93% 88%,94% 94%,89% 93%,84% 96%,79% 94%,74% 97%,69% 95%,64% 96%,59% 94%,54% 97%,49% 95%,44% 97%,39% 94%,34% 96%,29% 94%,24% 97%,19% 95%,14% 96%,10% 94%,5% 95%,6% 90%,3% 86%,5% 81%,2% 76%,4% 71%,3% 66%,5% 61%,2% 56%,4% 51%,3% 46%,5% 41%,2% 36%,4% 31%,3% 26%,5% 21%,3% 16%,5% 11%);
+}
