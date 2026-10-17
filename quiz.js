@@ -8,10 +8,21 @@ const timer = document.getElementById('quiz-timer');
 const timeBar = document.getElementById('quiz-timebar');
 let quiz;
 let interval;
+let previousMapId = null;
+let textHistory = [];
+try { previousMapId = sessionStorage.getItem('ursus-previous-map'); } catch {}
+try {
+  const saved = JSON.parse(sessionStorage.getItem('ursus-text-history') || '[]');
+  if (Array.isArray(saved)) textHistory = saved;
+} catch {}
 function focusHeading(element) { element.focus({preventScroll:true}); }
 function startQuiz() {
   clearInterval(interval);
-  quiz = new QuizEngine([...QUIZ_QUESTIONS, ...QUIZ_IMAGE_QUESTIONS]);
+  QuizMaps.stop();
+  QuizMaps.clearReviews();
+  quiz = new QuizEngine([...QUIZ_QUESTIONS, ...QUIZ_IMAGE_QUESTIONS, ...QUIZ_MAP_QUESTIONS], undefined, previousMapId, textHistory);
+  textHistory = quiz.textHistory;
+  try { sessionStorage.setItem('ursus-text-history', JSON.stringify(textHistory)); } catch {}
   quiz.start(Date.now());
   intro.hidden = true;
   result.hidden = true;
@@ -20,9 +31,17 @@ function startQuiz() {
   interval = setInterval(updateTime, 100);
 }
 function renderQuestion() {
+  QuizMaps.stop();
   if (quiz.done) { showResult(); return; }
   document.getElementById('quiz-progress').textContent = `Pytanie ${quiz.index + 1} z ${quiz.questions.length}`;
   title.textContent = quiz.current.question;
+  const isMap = quiz.current.type === 'map';
+  if (isMap) {
+    previousMapId = quiz.current.id;
+    try { sessionStorage.setItem('ursus-previous-map', previousMapId); } catch {}
+  }
+  options.hidden = isMap;
+  document.getElementById('quiz-map-task').hidden = !isMap;
   const photo = document.getElementById('quiz-photo');
   const image = document.getElementById('quiz-image');
   photo.hidden = !quiz.current.image;
@@ -53,6 +72,12 @@ function renderQuestion() {
     options.append(label);
   });
   next.disabled = true;
+  if (isMap) QuizMaps.start(point => {
+    const now = Date.now();
+    if (quiz.tick(now)) { renderQuestion(); return false; }
+    if (quiz.select(point, now)) { next.disabled = false; return true; }
+    return false;
+  });
   next.textContent = quiz.index === quiz.questions.length - 1 ? 'Zatwierdź i zobacz wynik →' : 'Zatwierdź i przejdź dalej →';
   updateTime();
   focusHeading(title);
@@ -67,6 +92,8 @@ function updateTime() {
 }
 function showResult() {
   clearInterval(interval);
+  QuizMaps.stop();
+  QuizMaps.clearReviews();
   active.hidden = true;
   result.hidden = false;
   document.getElementById('quiz-score').textContent = `${quiz.score} / ${quiz.questions.length}`;
@@ -81,9 +108,11 @@ function showResult() {
     status.className = 'review-status';
     status.textContent = `${answer.correct ? 'Poprawna odpowiedź · 1 pkt' : '0 pkt'}${answer.timedOut ? ' · upłynął czas' : ''}`;
     const chosen = document.createElement('p');
-    chosen.textContent = `Twoja odpowiedź: ${answer.selected === null ? 'Brak odpowiedzi' : answer.question.options[answer.selected].text}`;
+    chosen.textContent = answer.question.type === 'map'
+      ? (answer.selected ? 'Twoje wskazanie: złoty punkt na mapie.' : 'Nie zaznaczono miejsca na mapie.')
+      : `Twoja odpowiedź: ${answer.selected === null ? 'Brak odpowiedzi' : answer.question.options[answer.selected].text}`;
     const correct = document.createElement('p');
-    correct.textContent = `Poprawna odpowiedź: ${answer.question.options.find(option => option.correct).text}`;
+    correct.textContent = `Poprawna odpowiedź: ${answer.question.type === 'map' ? answer.question.placeName : answer.question.options.find(option => option.correct).text}`;
     item.append(heading, status, chosen, correct);
     if (answer.question.image) {
       const photo = document.createElement('img');
@@ -93,6 +122,24 @@ function showResult() {
       item.insertBefore(photo, status);
     }
     review.append(item);
+    if (answer.question.type === 'map') {
+      const distance = document.createElement('p');
+      distance.className = 'map-distance';
+      distance.textContent = answer.distance === null ? 'Odległość: brak wskazania'
+        : `Odległość w linii prostej: ${answer.distance.toLocaleString('pl-PL',{maximumFractionDigits:1})} m`;
+      const rule = document.createElement('p');
+      rule.textContent = `Punkt za odległość do ${answer.question.radiusMeters} m włącznie.`;
+      const map = document.createElement('div');
+      map.className = 'quiz-map map-review';
+      map.setAttribute('aria-label','Mapa porównująca wskazane miejsce z prawidłową lokalizacją');
+      const legend = document.createElement('div');
+      legend.className = 'map-legend';
+      const actual = document.createElement('span'); actual.textContent = 'Prawidłowa lokalizacja';
+      const selected = document.createElement('span'); selected.textContent = 'Twoje wskazanie';
+      legend.append(actual,selected);
+      item.append(distance,rule,map,legend);
+      QuizMaps.review(map,answer);
+    }
   });
   focusHeading(document.getElementById('quiz-result-title'));
 }

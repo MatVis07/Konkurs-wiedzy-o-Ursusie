@@ -1,0 +1,8 @@
+Mapa Ursusa — lokalne dane wektorowe
+
+Źródło: © OpenStreetMap contributors, https://www.openstreetmap.org/copyright
+Licencja danych: Open Database License (ODbL) 1.0, https://opendatacommons.org/licenses/odbl/1-0/
+Dane pobrane przez API OpenStreetMap 17 października 2026.
+Zasięg: 20.845–20.940 E, 52.175–52.229 N.
+Plik ursus-map-data.js zawiera wybrane ulice, linie kolejowe, parki i zbiorniki wodne.
+Dane są dołączone do strony; przeglądarka nie pobiera kafelków mapy.

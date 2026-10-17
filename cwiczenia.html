@@ -6,10 +6,16 @@
   <title>Ćwiczenia — Konkurs wiedzy o Ursusie</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="quiz-map.css">
+  <script src="assets/vendor/leaflet/leaflet.js" defer></script>
   <script src="quiz-data.js" defer></script>
   <script src="quiz-images.js" defer></script>
-  <script src="quiz-engine.js" defer></script>
-  <script src="quiz.js" defer></script>
+  <script src="quiz-map-data.js?v=20261017-2" defer></script>
+  <script src="quiz-engine.js?v=20261017-3" defer></script>
+  <script src="assets/ursus-map-data.js" defer></script>
+  <script src="quiz-map.js" defer></script>
+  <script src="quiz.js?v=20261017-3" defer></script>
 </head>
 <body>
   <header class="header container">
@@ -23,7 +29,8 @@
     <p class="intro">Tutaj sprawdzisz swoją wiedzę przed konkursem.</p>
     <section id="quiz-intro" class="quiz-card">
       <h2>Sprawdź swoją wiedzę</h2>
-      <p>W każdym podejściu wylosujesz <strong>4 pytania tekstowe i 1 pytanie ze zdjęciem</strong>. Rozpoznaj miejsce w Ursusie i wybierz odpowiedź A, B, C lub D. Na każde pytanie masz <strong>60 sekund</strong>.</p>
+      <p>W każdym podejściu wylosujesz <strong>3 pytania tekstowe, 1 pytanie ze zdjęciem i 1 zadanie z mapą</strong>. W pytaniach wyboru zaznacz odpowiedź A, B, C lub D. W zadaniu z mapą wskaż miejsce przedstawione na zdjęciu. Na każde pytanie masz <strong>60 sekund</strong>.</p>
+      <p>Za wskazanie na mapie w promieniu <strong>200 metrów</strong> od właściwego miejsca otrzymasz 1 punkt. W podsumowaniu zobaczysz odległość w linii prostej oraz mapę z Twoim wskazaniem i prawidłową lokalizacją. Mapa Ursusa jest zapisana lokalnie i działa także bez internetu.</p>
       <p>Możesz zmieniać wybór do końca czasu. Po jego upływie zapiszemy ostatnio zaznaczoną odpowiedź i przejdziemy do kolejnego pytania. Możesz też wcześniej zatwierdzić odpowiedź przyciskiem.</p>
       <p>Za poprawną odpowiedź otrzymasz 1 punkt. Wynik i poprawne odpowiedzi zobaczysz po zakończeniu całej piątki.</p>
       <button id="quiz-start" class="study-button" type="button">Rozpocznij ćwiczenia →</button>
@@ -38,6 +45,13 @@
           <img id="quiz-image" alt="" decoding="async">
         </figure>
         <div id="quiz-options" role="radiogroup" aria-labelledby="question-title"></div>
+        <div id="quiz-map-task" hidden>
+          <p class="map-instructions">Kliknij lub dotknij mapy, aby postawić znacznik. Możesz zmieniać wskazanie do końca czasu. Punkt zdobędziesz, jeśli pomylisz się o najwyżej 200 m.</p>
+          <div id="quiz-map" class="quiz-map" aria-label="Mapa Ursusa. Przesuwaj strzałkami i zmieniaj przybliżenie przyciskami plus i minus."></div>
+          <div class="map-actions"><button id="map-select-center" class="study-button study-button-outline" type="button">Zaznacz środek mapy</button><button id="map-reset-view" class="study-button study-button-outline" type="button">Pokaż obszar Ursusa</button></div>
+          <p id="map-selection-status" role="status">Nie zaznaczono jeszcze miejsca.</p>
+          <p id="map-network-status" role="status" hidden></p>
+        </div>
       </fieldset>
       <button id="quiz-next" class="study-button" type="button" disabled>Zatwierdź i przejdź dalej →</button>
     </section>
