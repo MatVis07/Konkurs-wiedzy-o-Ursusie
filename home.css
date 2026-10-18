@@ -85,3 +85,72 @@
   mask-image:none;
   clip-path:polygon(5% 4%,10% 5%,14% 3%,18% 4%,22% 2%,26% 4%,31% 3%,35% 5%,40% 3%,45% 4%,49% 2%,54% 4%,59% 3%,63% 5%,68% 3%,73% 4%,78% 2%,83% 4%,88% 3%,94% 5%,93% 10%,96% 14%,94% 19%,97% 23%,95% 28%,97% 33%,94% 38%,96% 43%,95% 48%,98% 53%,95% 58%,97% 63%,94% 68%,96% 73%,94% 78%,96% 84%,93% 88%,94% 94%,89% 93%,84% 96%,79% 94%,74% 97%,69% 95%,64% 96%,59% 94%,54% 97%,49% 95%,44% 97%,39% 94%,34% 96%,29% 94%,24% 97%,19% 95%,14% 96%,10% 94%,5% 95%,6% 90%,3% 86%,5% 81%,2% 76%,4% 71%,3% 66%,5% 61%,2% 56%,4% 51%,3% 46%,5% 41%,2% 36%,4% 31%,3% 26%,5% 21%,3% 16%,5% 11%);
 }
+
+/* Wyraźne, szerokie wejścia do dwóch głównych stref. */
+.home-page .collage-home{grid-template-columns:.92fr 1.3fr;column-gap:32px}
+.home-page .collage-copy h1{font-size:clamp(50px,7.6svh,80px)}
+.collage-description{max-width:430px;font-size:15px;line-height:1.8;margin:22px 0 24px}
+.home-actions{display:grid;grid-template-columns:1fr;gap:12px;max-width:440px}
+.home-action{width:100%;min-height:78px;padding:17px 24px;border-radius:16px;gap:22px;text-align:left}
+.action-copy{display:flex;flex-direction:column;gap:7px}
+.action-copy small{font-size:9px;font-weight:600;letter-spacing:1.7px;opacity:.72}
+.action-copy strong{font-size:18px;font-weight:600;letter-spacing:-.3px;line-height:1.2}
+.home-action>span{display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;border-radius:50%;font-size:21px}
+.home-action-secondary{background:rgb(96 116 87 / 6%);border-color:rgb(32 40 33 / 32%)}
+.home-action-secondary>span{background:rgb(96 116 87 / 12%)}
+.home-action-primary:hover{background:#354332}
+.home-action-secondary:hover{border-color:#607457;background:rgb(96 116 87 / 12%)}
+.home-rules{font-size:12px;margin-top:20px}
+@media(max-width:1000px){.home-page .collage-home{column-gap:22px}.home-action{padding:16px 20px}.action-copy strong{font-size:16px}.collage-description{font-size:14px}}
+@media(max-width:680px){
+ .home-page .collage-home{grid-template-columns:1fr}
+ .home-page .collage-copy h1{font-size:clamp(40px,10vw,56px)}
+ .collage-description{margin:16px 0 20px;font-size:13px}
+ .home-actions{max-width:none;gap:10px}
+ .home-action{min-height:68px;padding:13px 18px;border-radius:14px}
+ .action-copy strong{font-size:16px}.action-copy small{font-size:8px;letter-spacing:1.2px}
+ .home-action>span{width:30px;height:30px;font-size:19px}
+ .home-rules{margin-top:16px;font-size:11px}
+ .collage-art img{max-height:25svh}
+}
+@media(max-height:740px) and (min-width:681px){
+ .home-page .collage-copy h1{font-size:clamp(40px,7svh,52px)}
+ .collage-description{margin-block:14px;font-size:13px}
+ .home-action{min-height:66px;padding:12px 20px}
+ .action-copy strong{font-size:16px}.home-actions{gap:10px}
+ .home-rules{margin-top:14px}
+}
+@media(max-height:740px) and (max-width:680px){
+ .home-page .collage-copy h1{font-size:32px}
+ .collage-description{margin:10px 0 14px;font-size:12px}
+ .home-action{min-height:58px;padding:10px 16px}
+ .action-copy{gap:4px}.action-copy strong{font-size:14px}
+ .collage-art img{max-height:19svh}
+ .home-rules{margin-top:12px}
+}
+@media(min-width:681px) and (max-height:850px){.home-page .collage-copy h1{font-size:clamp(42px,6.8svh,60px)}.collage-copy{padding-block:6px}}
+@media(max-width:680px) and (max-height:600px){.collage-art img{max-height:12svh}.home-page .collage-home{padding-block:10px}.home-action{min-height:54px}.home-actions{gap:8px}}
+
+/* Powrót do prostych, zaokrąglonych przycisków. */
+.home-actions{display:flex;flex-wrap:wrap;gap:12px;max-width:none}
+.home-action{width:auto;min-height:58px;padding:14px 20px;border-radius:999px;font-size:12px;gap:16px;text-align:center}
+.home-action>span{width:30px;height:30px;font-size:19px}
+.home-action-secondary{background:transparent;border-color:var(--home-ink)}
+.home-action-secondary>span{width:auto;height:auto;background:transparent}
+@media(max-width:1000px){.home-action{font-size:11px;padding:13px 17px;gap:12px}}
+@media(max-width:680px){.home-actions{gap:10px}.home-action{min-height:52px;padding:12px 16px;font-size:11px}.home-action>span{width:26px;height:26px}.home-action-secondary>span{width:auto;height:auto}}
+@media(max-width:360px){.home-actions{gap:8px}.home-action{font-size:10px;padding:10px 12px;gap:8px;min-height:46px}.home-action>span{width:22px;height:22px}.home-action-secondary>span{width:auto;height:auto}}
+
+/* Dwa spójne wiersze i redakcyjny akcent na nazwie dzielnicy. */
+.collage-copy{container-type:inline-size}
+.home-page .collage-copy h1{font-size:clamp(32px,11.8cqw,66px);line-height:1.12;letter-spacing:-2px;font-weight:600;max-width:100%;margin-block:6px 0}
+.title-line{display:block;white-space:nowrap}
+.title-line+.title-line{margin-top:7px}
+.home-page .collage-copy h1 em{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;color:#607457;letter-spacing:-2.5px}
+@media(max-width:680px){.home-page .collage-copy h1{font-size:clamp(29px,11.5cqw,58px);letter-spacing:-1.4px}.title-line+.title-line{margin-top:5px}.home-page .collage-copy h1 em{letter-spacing:-1.5px}}
+@media(max-height:740px) and (min-width:681px){.home-page .collage-copy h1{font-size:clamp(32px,10.8cqw,55px)}}
+
+/* Tematyczne emotki zamiast strzałek w głównych przyciskach. */
+.home-action>span,.home-action-primary>span,.home-action-secondary>span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;flex-shrink:0;background:transparent;border-radius:0;font-size:23px;line-height:1;font-family:'Segoe UI Emoji','Apple Color Emoji',sans-serif}
+@media(max-width:680px){.home-action>span{width:26px;height:26px;font-size:21px}}
+@media(max-width:360px){.home-action>span{width:22px;height:22px;font-size:19px}}
