@@ -1,0 +1,14 @@
+/* Ekran zasad mieści się w oknie; zadania i wyniki zachowują pełną czytelność. */
+.practice-page:not(.quiz-running):not(.quiz-finished){min-height:100svh;display:flex;flex-direction:column}
+.practice-page:not(.quiz-running):not(.quiz-finished)>.header{padding-block:14px;flex-shrink:0}
+.practice-page:not(.quiz-running):not(.quiz-finished)>main{min-height:0;padding-block:18px;margin-block:auto}
+.practice-page:not(.quiz-running):not(.quiz-finished) .back-link{margin-bottom:14px;font-size:12px}
+.practice-page:not(.quiz-running):not(.quiz-finished) .eyebrow{margin:0 0 8px}
+.practice-page:not(.quiz-running):not(.quiz-finished) h1{font-size:clamp(32px,5.5svh,50px);margin:0 0 12px}
+.practice-page:not(.quiz-running):not(.quiz-finished) .intro{max-width:none;font-size:14px;margin:0 0 18px}
+.practice-page #quiz-intro{margin-top:0;padding:24px 28px}
+.practice-page #quiz-intro h2{font-size:23px;line-height:1.3;margin-bottom:14px}
+.practice-page #quiz-intro p{font-size:13px;line-height:1.65;margin-block:10px}
+.practice-page #quiz-intro .study-button{margin-top:12px}
+.practice-page:not(.quiz-running):not(.quiz-finished)>footer{padding-block:13px;flex-shrink:0}
+@media(max-width:600px){.practice-page #quiz-intro{padding:20px}.practice-page #quiz-intro h2{font-size:21px}.practice-page #quiz-intro p{font-size:13px}.practice-page:not(.quiz-running):not(.quiz-finished)>main{padding-block:14px}}

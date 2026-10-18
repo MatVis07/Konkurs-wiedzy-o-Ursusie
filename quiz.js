@@ -17,6 +17,7 @@ try {
 } catch {}
 function focusHeading(element) { element.focus({preventScroll:true}); }
 function startQuiz() {
+  PracticeLayout.setMode('active');
   clearInterval(interval);
   QuizMaps.stop();
   QuizMaps.clearReviews();
@@ -91,6 +92,7 @@ function updateTime() {
   timer.classList.toggle('time-low', remaining <= 10000);
 }
 function showResult() {
+  PracticeLayout.setMode('result');
   clearInterval(interval);
   QuizMaps.stop();
   QuizMaps.clearReviews();

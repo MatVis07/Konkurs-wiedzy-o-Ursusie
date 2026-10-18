@@ -150,7 +150,21 @@
 @media(max-width:680px){.home-page .collage-copy h1{font-size:clamp(29px,11.5cqw,58px);letter-spacing:-1.4px}.title-line+.title-line{margin-top:5px}.home-page .collage-copy h1 em{letter-spacing:-1.5px}}
 @media(max-height:740px) and (min-width:681px){.home-page .collage-copy h1{font-size:clamp(32px,10.8cqw,55px)}}
 
-/* Tematyczne emotki zamiast strzałek w głównych przyciskach. */
-.home-action>span,.home-action-primary>span,.home-action-secondary>span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;flex-shrink:0;background:transparent;border-radius:0;font-size:23px;line-height:1;font-family:'Segoe UI Emoji','Apple Color Emoji',sans-serif}
-@media(max-width:680px){.home-action>span{width:26px;height:26px;font-size:21px}}
-@media(max-width:360px){.home-action>span{width:22px;height:22px;font-size:19px}}
+
+/* Przywrócony czterowierszowy tytuł i większe przyciski z emotkami. */
+.home-page .collage-copy h1{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(50px,7.6svh,80px);font-weight:700;line-height:.98;letter-spacing:-3px;margin:0}
+.home-page .collage-copy h1 em{font-family:inherit;font-style:normal;font-weight:inherit;color:#607457;letter-spacing:inherit}
+.home-page .collage-copy h1 br{display:initial}
+@media(min-width:681px) and (max-height:850px){.home-page .collage-copy h1{font-size:clamp(42px,6.8svh,60px)}}
+@media(max-width:680px){.home-page .collage-copy h1{font-size:clamp(40px,10vw,56px);letter-spacing:-2px}.home-page .collage-copy h1 br:nth-of-type(2){display:initial}}
+@media(max-width:680px) and (max-height:740px){.home-page .collage-copy h1{font-size:32px;letter-spacing:-1.6px}}
+
+/* Większy tytuł, z zachowaniem miejsca na opis i przyciski. */
+.home-page .collage-copy h1{font-size:clamp(58px,9svh,94px)}
+@media(min-width:681px) and (max-height:850px){.home-page .collage-copy h1{font-size:clamp(48px,8svh,70px)}}
+@media(max-width:680px){.home-page .collage-copy h1{font-size:clamp(46px,12vw,64px)}}
+@media(max-width:680px) and (max-height:740px){.home-page .collage-copy h1{font-size:38px}}
+
+/* Zbliżenie całego bloku treści do kolażu na większych ekranach. */
+@media(min-width:1001px){.collage-copy{transform:translateX(36px)}}
+@media(min-width:681px) and (max-width:1000px){.collage-copy{transform:translateX(18px)}}
