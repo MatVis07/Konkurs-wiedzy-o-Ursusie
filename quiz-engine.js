@@ -6,7 +6,7 @@ class QuizEngine {
     }
     return Math.random();
   }
-  constructor(bank, random = QuizEngine.random, previousMapId = null, textHistory = []) {
+  constructor(bank, random = QuizEngine.random, previousMapId = null, textHistory = [], sessionCounts = null) {
     const shuffle = items => {
       const pool = [...items];
       for (let i = pool.length - 1; i > 0; i--) {
@@ -18,8 +18,20 @@ class QuizEngine {
     const textQuestions = bank.filter(q => !q.image);
     const imageQuestions = bank.filter(q => q.image && q.type !== 'map');
     const mapQuestions = bank.filter(q => q.type === 'map');
-    const textCount = mapQuestions.length ? 3 : 4;
-    if (textQuestions.length < textCount || imageQuestions.length < 1) {
+    let counts = sessionCounts;
+    if (counts) {
+      counts = {...counts};
+      const available = {choice:textQuestions.length,image:imageQuestions.length,map:mapQuestions.length};
+      let total = 0;
+      for (const type of Object.keys(available)) {
+        counts[type] ??= 0;
+        if (!Number.isInteger(counts[type]) || counts[type] < 0 || counts[type] > available[type]) throw new Error('Nieprawidłowa liczba zadań w kategorii.');
+        total += counts[type];
+      }
+      if (total < 1 || total > 15) throw new Error('Sesja musi zawierać od 1 do 15 zadań.');
+    } else counts = {choice:mapQuestions.length ? 3 : 4,image:1,map:mapQuestions.length ? 1 : 0};
+    const textCount = counts.choice;
+    if (textQuestions.length < textCount || imageQuestions.length < counts.image) {
       throw new Error('Quiz wymaga co najmniej 4 pytań tekstowych i 1 graficznego.');
     }
     const knownIds = new Set(textQuestions.map(q => q.id));
@@ -33,10 +45,11 @@ class QuizEngine {
       nextHistory = refill.map(q => q.id);
     }
     this.textHistory = nextHistory;
-    const selected = [...fresh, shuffle(imageQuestions)[0]];
-    if (mapQuestions.length) {
-      const differentMaps = mapQuestions.filter(q => q.id !== previousMapId);
-      selected.push(shuffle(differentMaps.length ? differentMaps : mapQuestions)[0]);
+    const selected = [...fresh, ...shuffle(imageQuestions).slice(0, counts.image)];
+    if (counts.map) {
+      const differentMaps = shuffle(mapQuestions.filter(q => q.id !== previousMapId));
+      const previous = mapQuestions.filter(q => q.id === previousMapId);
+      selected.push(...[...differentMaps, ...previous].slice(0, counts.map));
     }
     this.questions = shuffle(selected).map(q => {
       const options = (q.options || []).map((text, index) => ({text, correct: index === q.correct}));

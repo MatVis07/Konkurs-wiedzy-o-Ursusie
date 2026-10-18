@@ -12,3 +12,40 @@
 .practice-page #quiz-intro .study-button{margin-top:12px}
 .practice-page:not(.quiz-running):not(.quiz-finished)>footer{padding-block:13px;flex-shrink:0}
 @media(max-width:600px){.practice-page #quiz-intro{padding:20px}.practice-page #quiz-intro h2{font-size:21px}.practice-page #quiz-intro p{font-size:13px}.practice-page:not(.quiz-running):not(.quiz-finished)>main{padding-block:14px}}
+
+/* Konfiguracja sesji w stylistyce papierowego ekranu ćwiczeń. */
+.practice-page .task-type-fieldset{border:0;padding:0;margin:22px 0 14px;min-width:0}
+.task-type-fieldset legend{font-family:'Space Grotesk',Arial,sans-serif;font-size:19px;font-weight:600;margin-bottom:12px}
+#task-types{display:grid;gap:8px}
+.task-type{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--paper-line);border-radius:10px;cursor:pointer;background:rgb(238 232 219 / 45%)}
+.task-type:has(input:checked){border-color:rgb(96 116 87 / 50%);background:rgb(96 116 87 / 7%)}
+.task-type input{accent-color:var(--paper-accent);width:18px;height:18px;margin-top:2px;flex-shrink:0}
+.task-type strong{display:block;font-size:13px;font-weight:600}
+.task-type small{display:block;color:var(--paper-muted);font-size:11px;line-height:1.6;margin-top:3px}
+.advanced-toggle{display:flex;align-items:center;gap:9px;padding:10px 0;font:inherit;font-size:12px;font-weight:600;border:0;background:transparent;color:var(--paper-ink);cursor:pointer}
+.advanced-toggle>span:first-child{font-size:18px}
+.advanced-chevron{transition:transform .25s;font-size:18px}
+.advanced-toggle[aria-expanded=true] .advanced-chevron{transform:rotate(180deg)}
+.advanced-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .28s ease,visibility .28s}
+.advanced-panel.is-open{grid-template-rows:1fr;visibility:visible}
+.advanced-inner{overflow:hidden;min-height:0}
+.advanced-content{padding:14px 16px;margin-block:8px;border:1px solid var(--paper-line);border-radius:12px;background:rgb(238 232 219 / 60%)}
+.practice-page #quiz-intro .advanced-content>p{font-size:12px;margin-top:0}
+.task-count-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:5px 12px;padding-block:12px;border-top:1px solid var(--paper-line)}
+.task-count-row>label{font-size:12px;font-weight:600}
+.count-availability{grid-column:1/-1;font-size:11px;color:var(--paper-muted);line-height:1.5}
+.count-stepper{display:flex;align-items:center;border:1px solid var(--paper-line);border-radius:9px;overflow:hidden;background:var(--paper-sheet)}
+.count-stepper button{width:36px;height:36px;border:0;background:transparent;color:var(--paper-ink);font-size:20px;cursor:pointer}
+.count-stepper button:hover:enabled{background:rgb(96 116 87 / 12%)}
+.count-stepper input{width:46px;height:36px;background:transparent;text-align:center;border:0;border-inline:1px solid var(--paper-line);font:inherit;font-size:14px;color:var(--paper-ink);appearance:textfield;-moz-appearance:textfield}
+.count-stepper input::-webkit-inner-spin-button,.count-stepper input::-webkit-outer-spin-button{appearance:none;margin:0}
+.count-stepper button:disabled,.count-stepper input:disabled{opacity:.35;cursor:not-allowed}
+.type-disabled>label{color:var(--paper-muted)}
+.session-summary{padding:12px 0 0;border-top:1px solid var(--paper-line);margin-top:12px}
+#session-total{font-size:15px;color:var(--paper-accent)}
+.practice-page #quiz-intro #session-message,.practice-page #quiz-intro #settings-feedback{font-size:12px;line-height:1.6}
+#settings-feedback:empty{display:none}
+#settings-feedback{color:var(--paper-accent)}
+.settings-reset{font:inherit;font-size:12px;background:none;border:0;text-decoration:underline;text-underline-offset:3px;color:var(--paper-accent);padding:10px 0;cursor:pointer}
+@media(max-width:600px){.task-count-row{grid-template-columns:1fr}.count-stepper{justify-self:start}.count-availability{grid-column:auto}.practice-page #quiz-intro{padding:18px}.practice-page:not(.quiz-running):not(.quiz-finished)>main{margin-block:0}.task-type{padding:12px}}
+@media(prefers-reduced-motion:reduce){.advanced-panel,.advanced-chevron{transition:none}}

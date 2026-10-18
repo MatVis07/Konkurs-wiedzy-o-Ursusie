@@ -8,16 +8,18 @@
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="quiz-map.css">
-  <link rel="stylesheet" href="practice-layout.css?v=20261018">
+  <link rel="stylesheet" href="practice-layout.css?v=20261018-settings">
   <script src="assets/vendor/leaflet/leaflet.js" defer></script>
   <script src="quiz-data.js" defer></script>
   <script src="quiz-images.js" defer></script>
   <script src="quiz-map-data.js?v=20261017-2" defer></script>
-  <script src="quiz-engine.js?v=20261017-3" defer></script>
+  <script src="quiz-session.js?v=1" defer></script>
+  <script src="quiz-engine.js?v=20261018-settings" defer></script>
   <script src="assets/ursus-map-data.js" defer></script>
   <script src="quiz-map.js" defer></script>
-  <script src="practice-layout.js?v=20261018" defer></script>
-  <script src="quiz.js?v=20261018-layout" defer></script>
+  <script src="practice-layout.js?v=20261018-settings" defer></script>
+  <script src="practice-settings.js?v=1" defer></script>
+  <script src="quiz.js?v=20261018-settings" defer></script>
 </head>
 <body class="practice-page">
   <header class="header container">
@@ -31,10 +33,17 @@
     <p class="intro">Tutaj sprawdzisz swoją wiedzę przed konkursem.</p>
     <section id="quiz-intro" class="quiz-card">
       <h2>Sprawdź swoją wiedzę</h2>
-      <p>W każdym podejściu wylosujesz <strong>3 pytania tekstowe, 1 pytanie ze zdjęciem i 1 zadanie z mapą</strong>. W pytaniach wyboru zaznacz odpowiedź A, B, C lub D. W zadaniu z mapą wskaż miejsce przedstawione na zdjęciu. Na każde pytanie masz <strong>60 sekund</strong>.</p>
+      <p>Wybierz rodzaje zadań i rozwiąż <strong>od 1 do 15 zadań</strong> w jednej sesji. W pytaniach wyboru zaznacz odpowiedź A, B, C lub D. W zadaniu z mapą wskaż miejsce przedstawione na zdjęciu. Na każde pytanie masz <strong>60 sekund</strong>.</p>
       <p>Za wskazanie na mapie w promieniu <strong>200 metrów</strong> od właściwego miejsca otrzymasz 1 punkt. W podsumowaniu zobaczysz odległość w linii prostej oraz mapę z Twoim wskazaniem i prawidłową lokalizacją. Mapa Ursusa jest zapisana lokalnie i działa także bez internetu.</p>
       <p>Możesz zmieniać wybór do końca czasu. Po jego upływie zapiszemy ostatnio zaznaczoną odpowiedź i przejdziemy do kolejnego pytania. Możesz też wcześniej zatwierdzić odpowiedź przyciskiem.</p>
-      <p>Za poprawną odpowiedź otrzymasz 1 punkt. Wynik i poprawne odpowiedzi zobaczysz po zakończeniu całej piątki.</p>
+      <p>Za poprawną odpowiedź otrzymasz 1 punkt. Wynik i poprawne odpowiedzi zobaczysz po zakończeniu sesji.</p>
+      <fieldset class="task-type-fieldset"><legend>Wybierz rodzaj zadań</legend><div id="task-types"></div></fieldset>
+      <button id="advanced-toggle" class="advanced-toggle" type="button" aria-expanded="false" aria-controls="advanced-panel"><span aria-hidden="true">⚙</span> Ustawienia zaawansowane <span class="advanced-chevron" aria-hidden="true">⌄</span></button>
+      <div id="advanced-panel" class="advanced-panel" aria-hidden="true" inert>
+        <div class="advanced-inner"><div class="advanced-content"><p>Ustaw dokładną liczbę zadań każdego rodzaju. Łącznie możesz wybrać od 1 do 15 zadań.</p><div id="task-counts"></div><button id="settings-reset" type="button" class="settings-reset" hidden>Przywróć dobór automatyczny</button></div></div>
+      </div>
+      <p id="settings-feedback" role="status"></p>
+      <div class="session-summary"><strong id="session-total" role="status" aria-live="polite"></strong><p id="session-message"></p></div>
       <button id="quiz-start" class="study-button" type="button">Rozpocznij ćwiczenia →</button>
       <noscript><p>Włącz JavaScript w przeglądarce, aby uruchomić quiz.</p></noscript>
     </section>
@@ -62,7 +71,7 @@
         <p class="eyebrow">ĆWICZENIA ZAKOŃCZONE</p>
         <h2 id="quiz-result-title" tabindex="-1">Twój wynik</h2>
         <p id="quiz-score" class="quiz-score"></p>
-        <button id="quiz-restart" class="study-button" type="button">Wylosuj kolejne 5 pytań →</button>
+        <button id="quiz-restart" class="study-button" type="button">Rozpocznij ponownie →</button>
       </div>
       <h2 class="quiz-review-title">Podsumowanie odpowiedzi</h2>
       <div id="quiz-review"></div>

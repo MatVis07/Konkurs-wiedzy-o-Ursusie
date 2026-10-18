@@ -17,11 +17,16 @@ try {
 } catch {}
 function focusHeading(element) { element.focus({preventScroll:true}); }
 function startQuiz() {
+  let sessionCounts;
+  try { sessionCounts = PracticeSettings.getCounts(); } catch (error) {
+    document.getElementById('settings-feedback').textContent = error.message;
+    return;
+  }
   PracticeLayout.setMode('active');
   clearInterval(interval);
   QuizMaps.stop();
   QuizMaps.clearReviews();
-  quiz = new QuizEngine([...QUIZ_QUESTIONS, ...QUIZ_IMAGE_QUESTIONS, ...QUIZ_MAP_QUESTIONS], undefined, previousMapId, textHistory);
+  quiz = new QuizEngine([...QUIZ_QUESTIONS, ...QUIZ_IMAGE_QUESTIONS, ...QUIZ_MAP_QUESTIONS], undefined, previousMapId, textHistory, sessionCounts);
   textHistory = quiz.textHistory;
   try { sessionStorage.setItem('ursus-text-history', JSON.stringify(textHistory)); } catch {}
   quiz.start(Date.now());

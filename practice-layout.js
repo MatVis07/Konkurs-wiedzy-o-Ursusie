@@ -3,6 +3,8 @@ const PracticeLayout = (() => {
   function fit() {
     main.style.zoom = '';
     if (document.body.classList.contains('quiz-running') || document.body.classList.contains('quiz-finished')) return;
+    // Formularz pozostaje czytelny przy rozwiniętych ustawieniach i na telefonach.
+    if (document.body.classList.contains('practice-settings-open') || window.innerWidth < 681) return;
     const header = document.querySelector('body > header');
     const footer = document.querySelector('body > footer');
     const available = window.innerHeight - header.getBoundingClientRect().height - footer.getBoundingClientRect().height - 4;
@@ -11,7 +13,7 @@ const PracticeLayout = (() => {
       const height = main.getBoundingClientRect().height;
       if (height <= available) break;
       scale *= available / height;
-      main.style.zoom = Math.min(1, scale * .995);
+      main.style.zoom = Math.max(.85, Math.min(1, scale * .995));
     }
   }
   function setMode(mode) {
